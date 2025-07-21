@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Stunting</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1>📊 Dashboard Stunting</h1>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showSection('dashboard')" class="active">Dashboard</a></li>
+                <li><a href="#" onclick="showSection('analysis')">Analisis Data</a></li>
+                <li><a href="#" onclick="showSection('prediction')">Prediksi Stunting</a></li>
+                <li><a href="#" onclick="showSection('about')">Tentang</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="header">
+        <div class="container">
+            <h2>🧒 Dashboard Stunting Balita</h2>
+            <p>Sistem monitoring dan prediksi status stunting balita berbasis data antropometrik</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Dashboard Section -->
+        <div id="dashboard" class="section active">
+            <div class="dashboard">
+                <!-- Statistics Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="number" id="totalChildren">121,000</div>
+                        <div class="label">Total Balita</div>
+                        <div class="description">Jumlah data balita yang tercatat</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number" id="stuntingPrevalence">24.4%</div>
+                        <div class="label">Prevalensi Stunting</div>
+                        <div class="description">Persentase balita dengan status stunting</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number" id="normalCount">75,600</div>
+                        <div class="label">Status Normal</div>
+                        <div class="description">Jumlah balita dengan status gizi normal</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number" id="stuntedCount">29,500</div>
+                        <div class="label">Status Stunted</div>
+                        <div class="description">Jumlah balita dengan status stunting</div>
+                    </div>
+                </div>
+
+                <!-- Charts -->
+                <div class="charts-grid">
+                    <div class="chart-card">
+                        <h3>📊 Stunting Berdasarkan Jenis Kelamin</h3>
+                        <div class="chart-container">
+                            <canvas id="genderChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <h3>👶 Stunting Berdasarkan Kelompok Usia</h3>
+                        <div class="chart-container">
+                            <canvas id="ageChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analysis Section (NEW) -->
+        <div id="analysis" class="section">
+            <div class="analysis-section">
+                <h3>📈 Analisis Data Stunting</h3>
+                <p>Visualisasi dan analisis mendalam dari dataset stunting balita</p>
+                
+                <!-- Analysis Controls -->
+                <div class="analysis-controls" style="margin-bottom: 30px; text-align: center;">
+                    <button onclick="loadChart('clustering')" class="chart-btn">
+                        🎯 Analisis Clustering
+                    </button>
+                    <button onclick="loadChart('distribution')" class="chart-btn">
+                        📊 Distribusi Data
+                    </button>
+                    <button onclick="loadChart('correlation')" class="chart-btn">
+                        🔗 Korelasi Variabel
+                    </button>
+                </div>
+
+                <!-- Chart Display Area -->
+                <div class="chart-display">
+                    <div id="analysisLoading" class="loading-state" style="display: none;">
+                        <div class="spinner"></div>
+                        <p>Memuat analisis...</p>
+                    </div>
+                    
+                    <div id="analysisChart" style="display: none;">
+                        <div class="chart-header">
+                            <h4 id="chartTitle">Pilih Analisis</h4>
+                            <p id="chartDescription">Klik salah satu tombol di atas untuk melihat analisis</p>
+                        </div>
+                        <div class="chart-image">
+                            <img id="chartImg" src="" alt="Analysis Chart" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                        </div>
+                        <div id="chartInsights" class="chart-insights">
+                            <!-- Insights will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <div id="analysisWelcome" class="welcome-message">
+                        <h4>🔬 Analisis Data Science</h4>
+                        <p>Selamat datang di bagian analisis data! Di sini Anda dapat melihat:</p>
+                        <ul>
+                            <li><strong>Analisis Clustering:</strong> Pengelompokan data menggunakan algoritma K-Means</li>
+                            <li><strong>Distribusi Data:</strong> Visualisasi sebaran umur, tinggi, dan status gizi</li>
+                            <li><strong>Korelasi Variabel:</strong> Hubungan antar variabel dalam dataset</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Prediction Section -->
+        <div id="prediction" class="section">
+            <div class="prediction-section">
+                <h3>🔮 Prediksi Status Stunting Balita</h3>
+                
+                <!-- API Status Indicator -->
+                <div id="apiStatus" style="background: #e7f3ff; padding: 10px; border-radius: 8px; margin-bottom: 20px; text-align: center; font-size: 14px;">
+                    <span id="statusText">⏳ Memeriksa status sistem...</span>
+                </div>
+                
+                <form class="prediction-form" id="predictionForm" onsubmit="event.preventDefault(); predictStunting();">
+                    <div class="form-group">
+                        <label for="age">Usia (bulan)</label>
+                        <input type="number" id="age" name="age" min="0" max="60" required>
+                        <small style="color: #666; font-size: 12px;">Rentang: 0-60 bulan</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Jenis Kelamin</label>
+                        <select id="gender" name="gender" required>
+                            <option value="">Pilih jenis kelamin</option>
+                            <option value="male">Laki-laki</option>
+                            <option value="female">Perempuan</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="height">Tinggi Badan (cm)</label>
+                        <input type="number" id="height" name="height" min="40" max="120" step="0.1" required>
+                        <small style="color: #666; font-size: 12px;">Rentang: 40-120 cm</small>
+                    </div>
+                    <button type="submit" class="predict-btn">
+                        🔮 Prediksi Status Stunting
+                    </button>
+                </form>
+                
+                <div id="predictionResult" class="prediction-result">
+                    <h4 id="resultTitle"></h4>
+                    <p id="resultDescription"></p>
+                    <div class="recommendations" id="recommendations">
+                        <h5>Rekomendasi:</h5>
+                        <ul id="recommendationList"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <div id="about" class="section">
+            <div class="about-section">
+                <h3>📋 Tentang Dashboard Stunting</h3>
+                <div class="about-content">
+                    <p>
+                        <strong>Dashboard Stunting</strong> adalah sistem monitoring dan prediksi status stunting balita yang dikembangkan untuk membantu tenaga kesehatan, peneliti, dan pemangku kebijakan dalam memantau dan menganalisis kondisi gizi balita.
+                    </p>
+                    
+                    <p>
+                        <strong>Stunting</strong> adalah kondisi gagal tumbuh pada anak balita akibat kekurangan gizi kronis terutama pada 1000 hari pertama kehidupan. Stunting menjadi indikator penting dalam penilaian status gizi dan kesehatan anak.
+                    </p>
+                    
+                    <p>
+                        <strong>Fitur Dashboard:</strong>
+                    </p>
+                    <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                        <li>Visualisasi data stunting berdasarkan jenis kelamin dan kelompok usia</li>
+                        <li>Statistik prevalensi stunting secara real-time</li>
+                        <li>Analisis data science dengan clustering dan korelasi</li>
+                        <li>Prediksi status stunting menggunakan AI Machine Learning</li>
+                        <li>Fallback ke standar WHO Z-score jika AI tidak tersedia</li>
+                        <li>Rekomendasi intervensi berdasarkan hasil prediksi</li>
+                    </ul>
+                    
+                    <p>
+                        <strong>Analisis Data Science:</strong>
+                    </p>
+                    <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                        <li><strong>K-Means Clustering:</strong> Pengelompokan balita berdasarkan karakteristik fisik</li>
+                        <li><strong>Elbow Method:</strong> Penentuan jumlah cluster optimal</li>
+                        <li><strong>Silhouette Analysis:</strong> Evaluasi kualitas clustering</li>
+                        <li><strong>Correlation Analysis:</strong> Analisis hubungan antar variabel</li>
+                    </ul>
+                    
+                    <p>
+                        Dashboard ini mengintegrasikan teknik data science modern dengan praktik medis untuk memberikan insight yang actionable dalam pencegahan stunting.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Extended JavaScript for Chart Loading
+        async function loadChart(chartType) {
+            console.log(`Loading ${chartType} chart...`);
+            
+            // Show loading state
+            document.getElementById('analysisWelcome').style.display = 'none';
+            document.getElementById('analysisChart').style.display = 'none';
+            document.getElementById('analysisLoading').style.display = 'block';
+            
+            try {
+                const response = await fetch(`/api/charts/${chartType}`);
+                const data = await response.json();
+                
+                if (data.success) {
+                    // Update chart display
+                    document.getElementById('chartImg').src = `data:image/png;base64,${data.chart}`;
+                    
+                    // Update title and description based on chart type
+                    const titles = {
+                        'clustering': '🎯 Analisis K-Means Clustering',
+                        'distribution': '📊 Distribusi Data Stunting',
+                        'correlation': '🔗 Matriks Korelasi Variabel'
+                    };
+                    
+                    const descriptions = {
+                        'clustering': 'Analisis pengelompokan data menggunakan algoritma K-Means untuk menemukan pola dalam data stunting.',
+                        'distribution': 'Visualisasi distribusi umur, tinggi badan, jenis kelamin, dan status gizi dalam dataset.',
+                        'correlation': 'Analisis korelasi antar variabel untuk memahami hubungan antara faktor-faktor stunting.'
+                    };
+                    
+                    document.getElementById('chartTitle').textContent = titles[chartType];
+                    document.getElementById('chartDescription').textContent = descriptions[chartType];
+                    
+                    // Show insights based on chart type
+                    const insightsDiv = document.getElementById('chartInsights');
+                    if (chartType === 'clustering' && data.optimal_k) {
+                        insightsDiv.innerHTML = `
+                            <div class="insight-card">
+                                <h5>📈 Insight Clustering:</h5>
+                                <p><strong>Jumlah cluster optimal:</strong> ${data.optimal_k}</p>
+                                <p><strong>Silhouette Score terbaik:</strong> ${data.max_silhouette.toFixed(3)}</p>
+                                <p>Clustering menunjukkan adanya ${data.optimal_k} kelompok balita dengan karakteristik serupa dalam dataset.</p>
+                            </div>
+                        `;
+                    } else if (chartType === 'distribution' && data.statistics) {
+                        insightsDiv.innerHTML = `
+                            <div class="insight-card">
+                                <h5>📊 Statistik Dataset:</h5>
+                                <p><strong>Total sampel:</strong> ${data.statistics.total_samples.toLocaleString()}</p>
+                                <p><strong>Rata-rata umur:</strong> ${data.statistics.age_mean.toFixed(1)} bulan</p>
+                                <p><strong>Rata-rata tinggi:</strong> ${data.statistics.height_mean.toFixed(1)} cm</p>
+                            </div>
+                        `;
+                    } else {
+                        insightsDiv.innerHTML = `
+                            <div class="insight-card">
+                                <h5>💡 Insight:</h5>
+                                <p>Analisis ${chartType} memberikan pemahaman mendalam tentang pola dalam data stunting balita.</p>
+                            </div>
+                        `;
+                    }
+                    
+                    // Hide loading and show chart
+                    document.getElementById('analysisLoading').style.display = 'none';
+                    document.getElementById('analysisChart').style.display = 'block';
+                    
+                } else {
+                    throw new Error(data.error || 'Failed to load chart');
+                }
+                
+            } catch (error) {
+                console.error('Error loading chart:', error);
+                document.getElementById('analysisLoading').style.display = 'none';
+                document.getElementById('analysisWelcome').innerHTML = `
+                    <h4>❌ Error Loading Chart</h4>
+                    <p>Gagal memuat chart: ${error.message}</p>
+                    <p>Pastikan server Flask berjalan dan dataset tersedia.</p>
+                `;
+                document.getElementById('analysisWelcome').style.display = 'block';
+            }
+        }
+
+        // Update API status display
+        function showAPIStatus(message) {
+            const statusElement = document.getElementById('statusText');
+            if (statusElement) {
+                statusElement.textContent = message;
+            }
+        }
+    </script>
+</body>
+</html>
