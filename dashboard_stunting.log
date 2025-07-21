@@ -332,3 +332,175 @@
 2025-07-21 14:10:30,363 - INFO - 127.0.0.1 - - [21/Jul/2025 14:10:30] "GET / HTTP/1.1" 200 -
 2025-07-21 14:10:30,432 - INFO - 127.0.0.1 - - [21/Jul/2025 14:10:30] "[36mGET /styles.css HTTP/1.1[0m" 304 -
 2025-07-21 14:10:30,432 - INFO - 127.0.0.1 - - [21/Jul/2025 14:10:30] "[36mGET /script.js HTTP/1.1[0m" 304 -
+2025-07-21 14:39:21,742 - INFO - Initializing Dashboard Stunting Application
+2025-07-21 14:39:26,788 - INFO - Data science libraries loaded successfully
+2025-07-21 14:39:34,210 - INFO - TensorFlow available for AI predictions
+2025-07-21 14:39:34,223 - INFO - Generating sample dataset with 1000 records
+2025-07-21 14:39:34,232 - INFO - Cleaning dataset...
+2025-07-21 14:39:34,250 - INFO - Dataset cleaned: 1000 -> 978 records
+2025-07-21 14:39:34,290 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-21 14:39:34,290 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-21 14:39:39,195 - INFO - 127.0.0.1 - - [21/Jul/2025 14:39:39] "GET / HTTP/1.1" 200 -
+2025-07-21 14:39:39,659 - INFO - 127.0.0.1 - - [21/Jul/2025 14:39:39] "[36mGET /script.js HTTP/1.1[0m" 304 -
+2025-07-21 14:39:39,674 - INFO - 127.0.0.1 - - [21/Jul/2025 14:39:39] "GET /styles.css HTTP/1.1" 200 -
+2025-07-21 14:41:20,391 - INFO - 127.0.0.1 - - [21/Jul/2025 14:41:20] "GET / HTTP/1.1" 200 -
+2025-07-21 14:41:20,477 - INFO - 127.0.0.1 - - [21/Jul/2025 14:41:20] "[36mGET /styles.css HTTP/1.1[0m" 304 -
+2025-07-21 14:41:20,529 - INFO - 127.0.0.1 - - [21/Jul/2025 14:41:20] "GET /script.js HTTP/1.1" 200 -
+2025-07-21 14:41:22,836 - INFO - 127.0.0.1 - - [21/Jul/2025 14:41:22] "GET / HTTP/1.1" 200 -
+2025-07-21 14:41:22,895 - INFO - 127.0.0.1 - - [21/Jul/2025 14:41:22] "[36mGET /styles.css HTTP/1.1[0m" 304 -
+2025-07-21 14:41:22,896 - INFO - 127.0.0.1 - - [21/Jul/2025 14:41:22] "[36mGET /script.js HTTP/1.1[0m" 304 -
+2025-07-21 14:41:23,367 - INFO - 127.0.0.1 - - [21/Jul/2025 14:41:23] "GET / HTTP/1.1" 200 -
+2025-07-21 14:41:23,415 - INFO - 127.0.0.1 - - [21/Jul/2025 14:41:23] "[36mGET /styles.css HTTP/1.1[0m" 304 -
+2025-07-21 14:41:23,415 - INFO - 127.0.0.1 - - [21/Jul/2025 14:41:23] "[36mGET /script.js HTTP/1.1[0m" 304 -
+2025-07-21 14:42:54,676 - INFO - 127.0.0.1 - - [21/Jul/2025 14:42:54] "GET / HTTP/1.1" 200 -
+2025-07-21 14:42:54,733 - INFO - 127.0.0.1 - - [21/Jul/2025 14:42:54] "[36mGET /styles.css HTTP/1.1[0m" 304 -
+2025-07-21 14:42:54,733 - INFO - 127.0.0.1 - - [21/Jul/2025 14:42:54] "[36mGET /script.js HTTP/1.1[0m" 304 -
+2025-07-21 14:42:55,376 - INFO - 127.0.0.1 - - [21/Jul/2025 14:42:55] "GET / HTTP/1.1" 200 -
+2025-07-21 14:42:55,436 - INFO - 127.0.0.1 - - [21/Jul/2025 14:42:55] "[36mGET /styles.css HTTP/1.1[0m" 304 -
+2025-07-21 14:42:55,436 - INFO - 127.0.0.1 - - [21/Jul/2025 14:42:55] "[36mGET /script.js HTTP/1.1[0m" 304 -
+2025-07-21 14:42:55,586 - INFO - 127.0.0.1 - - [21/Jul/2025 14:42:55] "GET / HTTP/1.1" 200 -
+2025-07-21 14:42:55,649 - INFO - 127.0.0.1 - - [21/Jul/2025 14:42:55] "[36mGET /styles.css HTTP/1.1[0m" 304 -
+2025-07-21 14:42:55,649 - INFO - 127.0.0.1 - - [21/Jul/2025 14:42:55] "[36mGET /script.js HTTP/1.1[0m" 304 -
+2025-07-21 14:42:56,079 - INFO - 127.0.0.1 - - [21/Jul/2025 14:42:56] "GET / HTTP/1.1" 200 -
+2025-07-21 14:42:56,120 - INFO - 127.0.0.1 - - [21/Jul/2025 14:42:56] "GET / HTTP/1.1" 200 -
+2025-07-21 14:42:56,165 - INFO - 127.0.0.1 - - [21/Jul/2025 14:42:56] "GET / HTTP/1.1" 200 -
+2025-07-21 14:42:56,190 - INFO - 127.0.0.1 - - [21/Jul/2025 14:42:56] "GET / HTTP/1.1" 200 -
+2025-07-21 14:42:56,243 - INFO - 127.0.0.1 - - [21/Jul/2025 14:42:56] "GET / HTTP/1.1" 200 -
+2025-07-21 14:42:56,274 - INFO - 127.0.0.1 - - [21/Jul/2025 14:42:56] "GET / HTTP/1.1" 200 -
+2025-07-21 14:42:56,310 - INFO - 127.0.0.1 - - [21/Jul/2025 14:42:56] "GET / HTTP/1.1" 200 -
+2025-07-21 14:42:56,344 - INFO - 127.0.0.1 - - [21/Jul/2025 14:42:56] "GET / HTTP/1.1" 200 -
+2025-07-21 14:42:56,378 - INFO - 127.0.0.1 - - [21/Jul/2025 14:42:56] "GET / HTTP/1.1" 200 -
+2025-07-21 14:42:56,411 - INFO - 127.0.0.1 - - [21/Jul/2025 14:42:56] "GET / HTTP/1.1" 200 -
+2025-07-21 14:42:56,460 - INFO - 127.0.0.1 - - [21/Jul/2025 14:42:56] "GET / HTTP/1.1" 200 -
+2025-07-21 14:42:56,489 - INFO - 127.0.0.1 - - [21/Jul/2025 14:42:56] "GET / HTTP/1.1" 200 -
+2025-07-21 14:42:56,524 - INFO - 127.0.0.1 - - [21/Jul/2025 14:42:56] "GET / HTTP/1.1" 200 -
+2025-07-21 14:42:56,551 - INFO - 127.0.0.1 - - [21/Jul/2025 14:42:56] "GET / HTTP/1.1" 200 -
+2025-07-21 14:42:56,577 - INFO - 127.0.0.1 - - [21/Jul/2025 14:42:56] "GET / HTTP/1.1" 200 -
+2025-07-21 14:42:56,599 - INFO - 127.0.0.1 - - [21/Jul/2025 14:42:56] "GET / HTTP/1.1" 200 -
+2025-07-21 14:42:56,631 - INFO - 127.0.0.1 - - [21/Jul/2025 14:42:56] "GET / HTTP/1.1" 200 -
+2025-07-21 14:42:56,657 - INFO - 127.0.0.1 - - [21/Jul/2025 14:42:56] "GET / HTTP/1.1" 200 -
+2025-07-21 14:42:56,683 - INFO - 127.0.0.1 - - [21/Jul/2025 14:42:56] "GET / HTTP/1.1" 200 -
+2025-07-21 14:42:56,718 - INFO - 127.0.0.1 - - [21/Jul/2025 14:42:56] "GET / HTTP/1.1" 200 -
+2025-07-21 14:42:56,753 - INFO - 127.0.0.1 - - [21/Jul/2025 14:42:56] "GET / HTTP/1.1" 200 -
+2025-07-21 14:42:56,778 - INFO - 127.0.0.1 - - [21/Jul/2025 14:42:56] "GET / HTTP/1.1" 200 -
+2025-07-21 14:42:56,824 - INFO - 127.0.0.1 - - [21/Jul/2025 14:42:56] "[36mGET /styles.css HTTP/1.1[0m" 304 -
+2025-07-21 14:42:56,829 - INFO - 127.0.0.1 - - [21/Jul/2025 14:42:56] "[36mGET /script.js HTTP/1.1[0m" 304 -
+2025-07-21 14:43:07,595 - INFO - Initializing Dashboard Stunting Application
+2025-07-21 14:43:10,690 - INFO - Data science libraries loaded successfully
+2025-07-21 14:43:15,299 - INFO - TensorFlow available for AI predictions
+2025-07-21 14:43:15,319 - INFO - Generating sample dataset with 1000 records
+2025-07-21 14:43:15,325 - INFO - Cleaning dataset...
+2025-07-21 14:43:15,327 - INFO - Dataset cleaned: 1000 -> 978 records
+2025-07-21 14:43:15,357 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-21 14:43:15,357 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-21 14:43:25,553 - INFO - 127.0.0.1 - - [21/Jul/2025 14:43:25] "GET / HTTP/1.1" 200 -
+2025-07-21 14:43:25,766 - INFO - 127.0.0.1 - - [21/Jul/2025 14:43:25] "[36mGET /script.js HTTP/1.1[0m" 304 -
+2025-07-21 14:43:25,766 - INFO - 127.0.0.1 - - [21/Jul/2025 14:43:25] "[36mGET /styles.css HTTP/1.1[0m" 304 -
+2025-07-21 14:53:49,605 - INFO - Initializing Dashboard Stunting Application
+2025-07-21 14:53:52,820 - INFO - Data science libraries loaded successfully
+2025-07-21 14:53:57,253 - INFO - TensorFlow available for AI predictions
+2025-07-21 14:53:57,267 - INFO - Generating sample dataset with 1000 records
+2025-07-21 14:53:57,268 - INFO - Cleaning dataset...
+2025-07-21 14:53:57,272 - INFO - Dataset cleaned: 1000 -> 978 records
+2025-07-21 14:53:57,297 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-21 14:53:57,297 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-21 14:54:06,107 - INFO - 127.0.0.1 - - [21/Jul/2025 14:54:06] "GET / HTTP/1.1" 200 -
+2025-07-21 14:54:06,289 - INFO - 127.0.0.1 - - [21/Jul/2025 14:54:06] "GET /styles.css HTTP/1.1" 200 -
+2025-07-21 14:54:06,324 - INFO - 127.0.0.1 - - [21/Jul/2025 14:54:06] "GET /script.js HTTP/1.1" 200 -
+2025-07-21 14:58:27,432 - INFO - 127.0.0.1 - - [21/Jul/2025 14:58:27] "GET / HTTP/1.1" 200 -
+2025-07-21 14:58:27,485 - INFO - 127.0.0.1 - - [21/Jul/2025 14:58:27] "[36mGET /styles.css HTTP/1.1[0m" 304 -
+2025-07-21 14:58:27,488 - INFO - 127.0.0.1 - - [21/Jul/2025 14:58:27] "[36mGET /script.js HTTP/1.1[0m" 304 -
+2025-07-21 14:58:28,117 - INFO - 127.0.0.1 - - [21/Jul/2025 14:58:28] "GET / HTTP/1.1" 200 -
+2025-07-21 14:58:28,160 - INFO - 127.0.0.1 - - [21/Jul/2025 14:58:28] "[36mGET /styles.css HTTP/1.1[0m" 304 -
+2025-07-21 14:58:28,163 - INFO - 127.0.0.1 - - [21/Jul/2025 14:58:28] "[36mGET /script.js HTTP/1.1[0m" 304 -
+2025-07-21 14:58:28,632 - INFO - 127.0.0.1 - - [21/Jul/2025 14:58:28] "GET / HTTP/1.1" 200 -
+2025-07-21 14:58:28,662 - INFO - 127.0.0.1 - - [21/Jul/2025 14:58:28] "GET / HTTP/1.1" 200 -
+2025-07-21 14:58:28,700 - INFO - 127.0.0.1 - - [21/Jul/2025 14:58:28] "GET / HTTP/1.1" 200 -
+2025-07-21 14:58:28,732 - INFO - 127.0.0.1 - - [21/Jul/2025 14:58:28] "GET / HTTP/1.1" 200 -
+2025-07-21 14:58:28,765 - INFO - 127.0.0.1 - - [21/Jul/2025 14:58:28] "GET / HTTP/1.1" 200 -
+2025-07-21 14:58:28,810 - INFO - 127.0.0.1 - - [21/Jul/2025 14:58:28] "GET / HTTP/1.1" 200 -
+2025-07-21 14:58:28,840 - INFO - 127.0.0.1 - - [21/Jul/2025 14:58:28] "GET / HTTP/1.1" 200 -
+2025-07-21 14:58:28,878 - INFO - 127.0.0.1 - - [21/Jul/2025 14:58:28] "GET / HTTP/1.1" 200 -
+2025-07-21 14:58:28,911 - INFO - 127.0.0.1 - - [21/Jul/2025 14:58:28] "GET / HTTP/1.1" 200 -
+2025-07-21 14:58:28,937 - INFO - 127.0.0.1 - - [21/Jul/2025 14:58:28] "GET / HTTP/1.1" 200 -
+2025-07-21 14:58:28,961 - INFO - 127.0.0.1 - - [21/Jul/2025 14:58:28] "GET / HTTP/1.1" 200 -
+2025-07-21 14:58:28,986 - INFO - 127.0.0.1 - - [21/Jul/2025 14:58:28] "GET / HTTP/1.1" 200 -
+2025-07-21 14:58:29,014 - INFO - 127.0.0.1 - - [21/Jul/2025 14:58:29] "GET / HTTP/1.1" 200 -
+2025-07-21 14:58:29,039 - INFO - 127.0.0.1 - - [21/Jul/2025 14:58:29] "GET / HTTP/1.1" 200 -
+2025-07-21 14:58:29,091 - INFO - 127.0.0.1 - - [21/Jul/2025 14:58:29] "[36mGET /styles.css HTTP/1.1[0m" 304 -
+2025-07-21 14:58:29,095 - INFO - 127.0.0.1 - - [21/Jul/2025 14:58:29] "[36mGET /script.js HTTP/1.1[0m" 304 -
+2025-07-21 14:58:33,873 - INFO - Initializing Dashboard Stunting Application
+2025-07-21 14:58:36,795 - INFO - Data science libraries loaded successfully
+2025-07-21 14:58:41,140 - INFO - TensorFlow available for AI predictions
+2025-07-21 14:58:41,155 - INFO - Generating sample dataset with 1000 records
+2025-07-21 14:58:41,157 - INFO - Cleaning dataset...
+2025-07-21 14:58:41,165 - INFO - Dataset cleaned: 1000 -> 978 records
+2025-07-21 14:58:41,199 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-21 14:58:41,199 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-21 14:58:44,504 - INFO - 127.0.0.1 - - [21/Jul/2025 14:58:44] "GET / HTTP/1.1" 200 -
+2025-07-21 14:58:44,706 - INFO - 127.0.0.1 - - [21/Jul/2025 14:58:44] "[36mGET /script.js HTTP/1.1[0m" 304 -
+2025-07-21 14:58:44,706 - INFO - 127.0.0.1 - - [21/Jul/2025 14:58:44] "[36mGET /styles.css HTTP/1.1[0m" 304 -
+2025-07-21 15:07:49,698 - INFO - Initializing Dashboard Stunting Application
+2025-07-21 15:07:52,559 - INFO - Data science libraries loaded successfully
+2025-07-21 15:07:56,939 - INFO - TensorFlow available for AI predictions
+2025-07-21 15:07:56,953 - INFO - Generating sample dataset with 1000 records
+2025-07-21 15:07:56,954 - INFO - Cleaning dataset...
+2025-07-21 15:07:56,961 - INFO - Dataset cleaned: 1000 -> 978 records
+2025-07-21 15:07:56,993 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-21 15:07:56,993 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-21 15:08:02,208 - INFO - 127.0.0.1 - - [21/Jul/2025 15:08:02] "GET / HTTP/1.1" 200 -
+2025-07-21 15:08:02,380 - INFO - 127.0.0.1 - - [21/Jul/2025 15:08:02] "[36mGET /styles.css HTTP/1.1[0m" 304 -
+2025-07-21 15:14:24,853 - INFO - Initializing Dashboard Stunting Application
+2025-07-21 15:14:27,976 - INFO - Data science libraries loaded successfully
+2025-07-21 15:14:32,660 - INFO - TensorFlow available for AI predictions
+2025-07-21 15:14:32,674 - INFO - Generating sample dataset with 1000 records
+2025-07-21 15:14:32,676 - INFO - Cleaning dataset...
+2025-07-21 15:14:32,681 - INFO - Dataset cleaned: 1000 -> 978 records
+2025-07-21 15:14:32,731 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-21 15:14:32,731 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-21 15:14:36,655 - INFO - 127.0.0.1 - - [21/Jul/2025 15:14:36] "GET / HTTP/1.1" 200 -
+2025-07-21 15:14:36,862 - INFO - 127.0.0.1 - - [21/Jul/2025 15:14:36] "GET /styles.css HTTP/1.1" 200 -
+2025-07-21 15:17:14,402 - INFO - Initializing Dashboard Stunting Application
+2025-07-21 15:17:18,035 - INFO - Data science libraries loaded successfully
+2025-07-21 15:17:22,454 - INFO - TensorFlow available for AI predictions
+2025-07-21 15:17:22,466 - INFO - Generating sample dataset with 1000 records
+2025-07-21 15:17:22,468 - INFO - Cleaning dataset...
+2025-07-21 15:17:22,473 - INFO - Dataset cleaned: 1000 -> 978 records
+2025-07-21 15:17:22,503 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-21 15:17:22,503 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-21 15:17:25,235 - INFO - 127.0.0.1 - - [21/Jul/2025 15:17:25] "GET / HTTP/1.1" 200 -
+2025-07-21 15:17:25,386 - INFO - 127.0.0.1 - - [21/Jul/2025 15:17:25] "[36mGET /styles.css HTTP/1.1[0m" 304 -
+2025-07-21 15:18:19,631 - INFO - 127.0.0.1 - - [21/Jul/2025 15:18:19] "GET / HTTP/1.1" 200 -
+2025-07-21 15:18:19,942 - INFO - 127.0.0.1 - - [21/Jul/2025 15:18:19] "GET /styles.css HTTP/1.1" 200 -
+2025-07-21 15:19:30,374 - INFO - 127.0.0.1 - - [21/Jul/2025 15:19:30] "GET / HTTP/1.1" 200 -
+2025-07-21 15:19:30,507 - INFO - 127.0.0.1 - - [21/Jul/2025 15:19:30] "[36mGET /styles.css HTTP/1.1[0m" 304 -
+2025-07-21 15:19:33,440 - INFO - 127.0.0.1 - - [21/Jul/2025 15:19:33] "GET / HTTP/1.1" 200 -
+2025-07-21 15:19:33,509 - INFO - 127.0.0.1 - - [21/Jul/2025 15:19:33] "[36mGET /styles.css HTTP/1.1[0m" 304 -
+2025-07-21 15:19:45,939 - INFO - Initializing Dashboard Stunting Application
+2025-07-21 15:19:49,372 - INFO - Data science libraries loaded successfully
+2025-07-21 15:19:54,510 - INFO - TensorFlow available for AI predictions
+2025-07-21 15:19:54,524 - INFO - Generating sample dataset with 1000 records
+2025-07-21 15:19:54,526 - INFO - Cleaning dataset...
+2025-07-21 15:19:54,531 - INFO - Dataset cleaned: 1000 -> 978 records
+2025-07-21 15:19:54,556 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-07-21 15:19:54,556 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-21 15:19:57,473 - INFO - 127.0.0.1 - - [21/Jul/2025 15:19:57] "GET / HTTP/1.1" 200 -
+2025-07-21 15:19:57,650 - INFO - 127.0.0.1 - - [21/Jul/2025 15:19:57] "[36mGET /styles.css HTTP/1.1[0m" 304 -
+2025-07-21 15:19:57,715 - INFO - 127.0.0.1 - - [21/Jul/2025 15:19:57] "GET /script.js HTTP/1.1" 200 -
+2025-07-21 15:21:35,785 - INFO - 127.0.0.1 - - [21/Jul/2025 15:21:35] "GET / HTTP/1.1" 200 -
+2025-07-21 15:21:35,845 - INFO - 127.0.0.1 - - [21/Jul/2025 15:21:35] "[36mGET /script.js HTTP/1.1[0m" 304 -
+2025-07-21 15:21:35,858 - INFO - 127.0.0.1 - - [21/Jul/2025 15:21:35] "GET /styles.css HTTP/1.1" 200 -
+2025-07-21 15:24:35,228 - INFO - 127.0.0.1 - - [21/Jul/2025 15:24:35] "GET / HTTP/1.1" 200 -
+2025-07-21 15:24:35,287 - INFO - 127.0.0.1 - - [21/Jul/2025 15:24:35] "GET /styles.css HTTP/1.1" 200 -
+2025-07-21 15:24:35,344 - INFO - 127.0.0.1 - - [21/Jul/2025 15:24:35] "GET /script.js HTTP/1.1" 200 -
+2025-07-21 15:24:36,114 - INFO - 127.0.0.1 - - [21/Jul/2025 15:24:36] "GET / HTTP/1.1" 200 -
+2025-07-21 15:24:36,181 - INFO - 127.0.0.1 - - [21/Jul/2025 15:24:36] "[36mGET /script.js HTTP/1.1[0m" 304 -
+2025-07-21 15:24:36,186 - INFO - 127.0.0.1 - - [21/Jul/2025 15:24:36] "[36mGET /styles.css HTTP/1.1[0m" 304 -
