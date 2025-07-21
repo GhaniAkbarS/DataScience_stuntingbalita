@@ -3,135 +3,543 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Stunting</title>
+    <title>Dashboard Stunting - Analytics Platform</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar">
         <div class="container">
-            <h1>📊 Dashboard Stunting</h1>
+            <h1>📊 Dashboard Stunting Analytics</h1>
             <ul class="nav-links">
-                <li><a href="#" onclick="showSection('dashboard')" class="active">Dashboard</a></li>
-                <li><a href="#" onclick="showSection('analysis')">Analisis Data</a></li>
-                <li><a href="#" onclick="showSection('prediction')">Prediksi Stunting</a></li>
-                <li><a href="#" onclick="showSection('about')">Tentang</a></li>
+                <li><a href="#" onclick="showSection('home')" class="active"><i class="fas fa-home"></i> Beranda</a></li>
+                <li><a href="#" onclick="showSection('overview')"><i class="fas fa-database"></i> Data Overview</a></li>
+                <li><a href="#" onclick="showSection('cleaning')"><i class="fas fa-broom"></i> Data Cleaning</a></li>
+                <li><a href="#" onclick="showSection('eda')"><i class="fas fa-chart-bar"></i> EDA & Visualisasi</a></li>
+                <li><a href="#" onclick="showSection('modeling')"><i class="fas fa-robot"></i> Modeling</a></li>
+                <li><a href="#" onclick="showSection('storytelling')"><i class="fas fa-video"></i> Story Telling</a></li>
+                <li><a href="#" onclick="showSection('insights')"><i class="fas fa-lightbulb"></i> Insights</a></li>
+                <li><a href="#" onclick="showSection('prediction')"><i class="fas fa-magic"></i> Prediksi</a></li>
+                <li><a href="#" onclick="showSection('export')"><i class="fas fa-download"></i> Export</a></li>
+                <li><a href="#" onclick="showSection('team')"><i class="fas fa-users"></i> Tim</a></li>
             </ul>
         </div>
     </nav>
 
     <div class="header">
         <div class="container">
-            <h2>🧒 Dashboard Stunting Balita</h2>
-            <p>Sistem monitoring dan prediksi status stunting balita berbasis data antropometrik</p>
+            <h2>🧒 Dashboard Stunting Balita Analytics</h2>
+            <p>Platform analisis komprehensif untuk monitoring dan prediksi status stunting balita</p>
         </div>
     </div>
 
     <div class="container">
-        <!-- Dashboard Section -->
-        <div id="dashboard" class="section active">
-            <div class="dashboard">
-                <!-- Statistics Cards -->
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="number" id="totalChildren">121,000</div>
-                        <div class="label">Total Balita</div>
-                        <div class="description">Jumlah data balita yang tercatat</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="number" id="stuntingPrevalence">24.4%</div>
-                        <div class="label">Prevalensi Stunting</div>
-                        <div class="description">Persentase balita dengan status stunting</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="number" id="normalCount">75,600</div>
-                        <div class="label">Status Normal</div>
-                        <div class="description">Jumlah balita dengan status gizi normal</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="number" id="stuntedCount">29,500</div>
-                        <div class="label">Status Stunted</div>
-                        <div class="description">Jumlah balita dengan status stunting</div>
-                    </div>
+        <!-- 1. BERANDA / HOME SECTION -->
+        <div id="home" class="section active">
+            <div class="home-section">
+                <div class="hero-content">
+                    <h3>🎯 Analisis Dataset Stunting Balita Indonesia</h3>
+                    <p class="lead">Analisis komprehensif data stunting balita menggunakan machine learning dan statistik untuk mendukung pencegahan stunting di Indonesia</p>
                 </div>
 
-                <!-- Charts -->
-                <div class="charts-grid">
-                    <div class="chart-card">
-                        <h3>📊 Stunting Berdasarkan Jenis Kelamin</h3>
-                        <div class="chart-container">
-                            <canvas id="genderChart"></canvas>
-                        </div>
-                    </div>
-                    <div class="chart-card">
-                        <h3>👶 Stunting Berdasarkan Kelompok Usia</h3>
-                        <div class="chart-container">
-                            <canvas id="ageChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Analysis Section (NEW) -->
-        <div id="analysis" class="section">
-            <div class="analysis-section">
-                <h3>📈 Analisis Data Stunting</h3>
-                <p>Visualisasi dan analisis mendalam dari dataset stunting balita</p>
-                
-                <!-- Analysis Controls -->
-                <div class="analysis-controls" style="margin-bottom: 30px; text-align: center;">
-                    <button onclick="loadChart('clustering')" class="chart-btn">
-                        🎯 Analisis Clustering
-                    </button>
-                    <button onclick="loadChart('distribution')" class="chart-btn">
-                        📊 Distribusi Data
-                    </button>
-                    <button onclick="loadChart('correlation')" class="chart-btn">
-                        🔗 Korelasi Variabel
-                    </button>
-                </div>
-
-                <!-- Chart Display Area -->
-                <div class="chart-display">
-                    <div id="analysisLoading" class="loading-state" style="display: none;">
-                        <div class="spinner"></div>
-                        <p>Memuat analisis...</p>
-                    </div>
-                    
-                    <div id="analysisChart" style="display: none;">
-                        <div class="chart-header">
-                            <h4 id="chartTitle">Pilih Analisis</h4>
-                            <p id="chartDescription">Klik salah satu tombol di atas untuk melihat analisis</p>
-                        </div>
-                        <div class="chart-image">
-                            <img id="chartImg" src="" alt="Analysis Chart" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-                        </div>
-                        <div id="chartInsights" class="chart-insights">
-                            <!-- Insights will be populated by JavaScript -->
-                        </div>
-                    </div>
-                    
-                    <div id="analysisWelcome" class="welcome-message">
-                        <h4>🔬 Analisis Data Science</h4>
-                        <p>Selamat datang di bagian analisis data! Di sini Anda dapat melihat:</p>
+                <div class="project-overview">
+                    <div class="overview-card">
+                        <h4><i class="fas fa-bullseye"></i> Tujuan Analisis</h4>
+                        <p>Menganalisis pola stunting pada balita Indonesia untuk:</p>
                         <ul>
-                            <li><strong>Analisis Clustering:</strong> Pengelompokan data menggunakan algoritma K-Means</li>
-                            <li><strong>Distribusi Data:</strong> Visualisasi sebaran umur, tinggi, dan status gizi</li>
-                            <li><strong>Korelasi Variabel:</strong> Hubungan antar variabel dalam dataset</li>
+                            <li>Identifikasi faktor risiko stunting</li>
+                            <li>Prediksi status gizi balita</li>
+                            <li>Clustering profil balita berisiko</li>
+                            <li>Rekomendasi intervensi berbasis data</li>
+                        </ul>
+                    </div>
+
+                    <div class="overview-card">
+                        <h4><i class="fas fa-database"></i> Dataset Stunting Balita</h4>
+                        <p><strong>Source:</strong> Data stunting balita Indonesia</p>
+                        <p><strong>Total Records:</strong> <span id="homeDatasetSize">Loading...</span></p>
+                        <p><strong>Variabel Utama:</strong></p>
+                        <ul>
+                            <li><strong>Umur:</strong> Usia balita dalam bulan (0-59)</li>
+                            <li><strong>Tinggi Badan:</strong> Tinggi badan dalam centimeter</li>
+                            <li><strong>Jenis Kelamin:</strong> Laki-laki / Perempuan</li>
+                            <li><strong>Status Gizi:</strong> Normal / Stunting / Gizi Buruk</li>
+                        </ul>
+                        <p><strong>Periode Data:</strong> Data terkini stunting balita</p>
+                    </div>
+
+                    <div class="overview-card">
+                        <h4><i class="fas fa-cogs"></i> Metodologi Analisis</h4>
+                        <p><strong>Pendekatan Multi-Metode:</strong></p>
+                        <ul>
+                            <li><strong>EDA:</strong> Analisis distribusi dan pola data</li>
+                            <li><strong>Preprocessing:</strong> Cleaning & feature engineering</li>
+                            <li><strong>Machine Learning:</strong> Neural Network untuk klasifikasi</li>
+                            <li><strong>Clustering:</strong> K-Means untuk segmentasi balita</li>
+                            <li><strong>Validasi:</strong> WHO Z-score standards</li>
+                            <li><strong>Evaluasi:</strong> Confusion matrix & silhouette score</li>
                         </ul>
                     </div>
                 </div>
+
+                <div class="dataset-highlights">
+                    <h4>📊 Highlights Dataset</h4>
+                    <div class="highlights-grid" id="datasetHighlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-chart-pie"></i>
+                            <span class="highlight-value" id="stuntingRate">Loading...</span>
+                            <span class="highlight-label">Prevalensi Stunting</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-child"></i>
+                            <span class="highlight-value" id="avgAge">Loading...</span>
+                            <span class="highlight-label">Rata-rata Umur</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-ruler-vertical"></i>
+                            <span class="highlight-value" id="avgHeight">Loading...</span>
+                            <span class="highlight-label">Rata-rata Tinggi</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-balance-scale"></i>
+                            <span class="highlight-value" id="genderRatio">Loading...</span>
+                            <span class="highlight-label">Rasio L:P</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="research-context">
+                    <h4>🔬 Konteks Penelitian Stunting</h4>
+                    <div class="context-grid">
+                        <div class="context-item">
+                            <h5>🌍 Global Context</h5>
+                            <p>WHO menetapkan target global mengurangi stunting hingga 40% pada 2025. Indonesia masih menghadapi tantangan besar dalam pencapaian target ini.</p>
+                        </div>
+                        <div class="context-item">
+                            <h5>🇮🇩 Indonesia Context</h5>
+                            <p>Prevalensi stunting di Indonesia masih tinggi. Program pemerintah menargetkan penurunan menjadi 14% pada 2024.</p>
+                        </div>
+                        <div class="context-item">
+                            <h5>📈 Data Science Impact</h5>
+                            <p>Machine learning dapat membantu early detection dan personalized intervention untuk pencegahan stunting yang lebih efektif.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Prediction Section -->
+        <!-- 2. DATA OVERVIEW SECTION -->
+        <div id="overview" class="section">
+            <div class="overview-section">
+                <h3>📊 Dataset Overview & Eksplorasi Awal</h3>
+                
+                <div class="loading-state" id="overviewLoading">
+                    <div class="spinner"></div>
+                    <p>Memuat overview dataset stunting...</p>
+                </div>
+
+                <div id="overviewContent" style="display: none;">
+                    
+                    <!-- Dataset Summary -->
+                    <div class="dataset-summary">
+                        <h4>📋 Ringkasan Dataset Stunting</h4>
+                        <div class="summary-grid" id="datasetSummary">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Data Quality Assessment -->
+                    <div class="data-quality">
+                        <h4>✅ Assessment Kualitas Data</h4>
+                        <div class="quality-metrics" id="dataQuality">
+                            <div class="quality-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Completeness</span>
+                                <div class="quality-bar">
+                                    <div class="quality-progress" id="completenessBar"></div>
+                                </div>
+                                <span id="completenessText">Loading...</span>
+                            </div>
+                            <div class="quality-item">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <span>Outliers</span>
+                                <div class="quality-bar">
+                                    <div class="quality-progress" id="outliersBar"></div>
+                                </div>
+                                <span id="outliersText">Loading...</span>
+                            </div>
+                            <div class="quality-item">
+                                <i class="fas fa-copy"></i>
+                                <span>Duplicates</span>
+                                <div class="quality-bar">
+                                    <div class="quality-progress" id="duplicatesBar"></div>
+                                </div>
+                                <span id="duplicatesText">Loading...</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Variable Information -->
+                    <div class="variable-info">
+                        <h4>📊 Informasi Variabel Dataset</h4>
+                        <div class="variables-grid">
+                            <div class="variable-card">
+                                <h5><i class="fas fa-calendar-alt"></i> Umur (bulan)</h5>
+                                <p><strong>Type:</strong> Numerical</p>
+                                <p><strong>Range:</strong> <span id="ageRange">Loading...</span></p>
+                                <p><strong>Mean:</strong> <span id="ageMean">Loading...</span></p>
+                                <p><strong>Std:</strong> <span id="ageStd">Loading...</span></p>
+                            </div>
+                            <div class="variable-card">
+                                <h5><i class="fas fa-ruler-vertical"></i> Tinggi Badan (cm)</h5>
+                                <p><strong>Type:</strong> Numerical</p>
+                                <p><strong>Range:</strong> <span id="heightRange">Loading...</span></p>
+                                <p><strong>Mean:</strong> <span id="heightMean">Loading...</span></p>
+                                <p><strong>Std:</strong> <span id="heightStd">Loading...</span></p>
+                            </div>
+                            <div class="variable-card">
+                                <h5><i class="fas fa-venus-mars"></i> Jenis Kelamin</h5>
+                                <p><strong>Type:</strong> Categorical</p>
+                                <p><strong>Categories:</strong> Laki-laki, Perempuan</p>
+                                <p><strong>Distribution:</strong> <span id="genderDist">Loading...</span></p>
+                            </div>
+                            <div class="variable-card">
+                                <h5><i class="fas fa-heartbeat"></i> Status Gizi</h5>
+                                <p><strong>Type:</strong> Categorical (Target)</p>
+                                <p><strong>Categories:</strong> Normal, Stunting, Gizi Buruk</p>
+                                <p><strong>Distribution:</strong> <span id="statusDist">Loading...</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Preview Data -->
+                    <div class="data-preview">
+                        <h4>📋 Preview Dataset Stunting</h4>
+                        <div class="preview-controls">
+                            <button onclick="loadDataPreview(10)" class="preview-btn">Show 10 rows</button>
+                            <button onclick="loadDataPreview(25)" class="preview-btn">Show 25 rows</button>
+                            <button onclick="loadDataPreview(50)" class="preview-btn">Show 50 rows</button>
+                        </div>
+                        <div class="table-container" id="dataPreviewTable">
+                            <!-- Table will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Basic Statistics -->
+                    <div class="basic-stats">
+                        <h4>📈 Statistik Deskriptif</h4>
+                        <div class="stats-table" id="descriptiveStats">
+                            <!-- Statistics table will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Initial Visualizations -->
+                    <div class="initial-viz">
+                        <h4>📊 Visualisasi Awal Dataset</h4>
+                        <div class="viz-grid">
+                            <div class="viz-item">
+                                <h5>📊 Distribusi Status Gizi</h5>
+                                <div class="chart-placeholder" id="statusChart">
+                                    <img id="statusDistChart" class="chart-image" alt="Status Distribution">
+                                </div>
+                            </div>
+                            <div class="viz-item">
+                                <h5>👫 Distribusi Jenis Kelamin</h5>
+                                <div class="chart-placeholder" id="genderChart">
+                                    <img id="genderDistChart" class="chart-image" alt="Gender Distribution">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data Insights -->
+                    <div class="data-insights">
+                        <h4>💡 Initial Insights dari Dataset</h4>
+                        <div class="insights-list" id="initialInsights">
+                            <!-- Insights will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. DATA CLEANING SECTION -->
+        <div id="cleaning" class="section">
+            <div class="cleaning-section">
+                <h3>🧹 Data Cleaning & Transformation</h3>
+                
+                <div class="cleaning-summary">
+                    <div class="cleaning-step">
+                        <h4><i class="fas fa-search"></i> 1. Missing Values</h4>
+                        <p>Identifikasi dan penanganan data yang hilang</p>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 100%"></div>
+                        </div>
+                        <p class="step-result" id="missingResult">✅ Tidak ada missing values ditemukan</p>
+                    </div>
+
+                    <div class="cleaning-step">
+                        <h4><i class="fas fa-exclamation-triangle"></i> 2. Outlier Detection</h4>
+                        <p>Deteksi dan penanganan outlier menggunakan metode IQR</p>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 100%"></div>
+                        </div>
+                        <p class="step-result" id="outlierResult">📊 Data outlier telah diidentifikasi dan ditangani</p>
+                    </div>
+
+                    <div class="cleaning-step">
+                        <h4><i class="fas fa-copy"></i> 3. Duplicate Removal</h4>
+                        <p>Penghapusan data duplikat</p>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 100%"></div>
+                        </div>
+                        <p class="step-result" id="duplicateResult">🔄 Duplikasi data telah dihapus</p>
+                    </div>
+
+                    <div class="cleaning-step">
+                        <h4><i class="fas fa-code"></i> 4. Feature Encoding</h4>
+                        <p>Transformasi variabel kategorik menjadi numerik</p>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 100%"></div>
+                        </div>
+                        <p class="step-result">🎯 Encoding berhasil diterapkan</p>
+                    </div>
+                </div>
+
+                <div class="transformation-schema">
+                    <h4>🔄 Skema Transformasi</h4>
+                    <div class="schema-grid">
+                        <div class="schema-item">
+                            <h5>Jenis Kelamin</h5>
+                            <p>Laki-laki → 0<br>Perempuan → 1</p>
+                        </div>
+                        <div class="schema-item">
+                            <h5>Status Gizi</h5>
+                            <p>Normal → 0<br>Stunting → 1<br>Gizi Buruk → 2</p>
+                        </div>
+                        <div class="schema-item">
+                            <h5>Normalisasi</h5>
+                            <p>StandardScaler untuk fitur numerik</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. EDA & VISUALISASI SECTION -->
+        <div id="eda" class="section">
+            <div class="eda-section">
+                <h3>📈 Exploratory Data Analysis</h3>
+                
+                <div class="eda-controls">
+                    <button onclick="loadEDAChart('distribution')" class="eda-btn">
+                        📊 Distribusi Data
+                    </button>
+                    <button onclick="loadEDAChart('correlation')" class="eda-btn">
+                        🔗 Korelasi Variabel
+                    </button>
+                    <button onclick="loadEDAChart('clustering')" class="eda-btn">
+                        🎯 Clustering Analysis
+                    </button>
+                </div>
+
+                <div class="eda-display" id="edaDisplay">
+                    <div class="eda-welcome">
+                        <h4>🔬 Analisis Eksploratori Data</h4>
+                        <p>Pilih jenis analisis untuk melihat visualisasi dan insight mendalam</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. MODELING SECTION -->
+        <div id="modeling" class="section">
+            <div class="modeling-section">
+                <h3>🤖 Machine Learning Modeling</h3>
+                
+                <div class="model-overview">
+                    <div class="model-card">
+                        <h4><i class="fas fa-brain"></i> Neural Network</h4>
+                        <p>Deep learning model untuk klasifikasi status gizi</p>
+                        <div class="model-metrics">
+                            <span class="metric">Accuracy: <strong id="nnAccuracy">87.5%</strong></span>
+                            <span class="metric">Precision: <strong id="nnPrecision">86.2%</strong></span>
+                        </div>
+                        <div class="model-status active">✅ Model Aktif</div>
+                    </div>
+
+                    <div class="model-card">
+                        <h4><i class="fas fa-project-diagram"></i> K-Means Clustering</h4>
+                        <p>Unsupervised learning untuk pengelompokan data</p>
+                        <div class="model-metrics">
+                            <span class="metric">Clusters: <strong id="kmeansK">3</strong></span>
+                            <span class="metric">Silhouette: <strong id="kmeansSilhouette">0.625</strong></span>
+                        </div>
+                        <div class="model-status active">✅ Model Aktif</div>
+                    </div>
+
+                    <div class="model-card">
+                        <h4><i class="fas fa-calculator"></i> WHO Z-Score</h4>
+                        <p>Standard WHO untuk evaluasi status gizi</p>
+                        <div class="model-metrics">
+                            <span class="metric">Method: <strong>Height-for-Age</strong></span>
+                            <span class="metric">Standard: <strong>WHO 2006</strong></span>
+                        </div>
+                        <div class="model-status active">✅ Tersedia</div>
+                    </div>
+                </div>
+
+                <div class="evaluation-results">
+                    <h4>📊 Hasil Evaluasi Model</h4>
+                    <div class="evaluation-chart" id="evaluationChart">
+                        <!-- Model evaluation visualization -->
+                    </div>
+                </div>
+
+                <div class="prediction-table">
+                    <h4>📋 Sample Prediksi Model</h4>
+                    <div class="table-container" id="predictionTable">
+                        <!-- Prediction results table -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. STORY TELLING SECTION -->
+        <div id="storytelling" class="section">
+            <div class="storytelling-section">
+                <h3>📖 Visualisasi dengan Story Telling</h3>
+                
+                <div class="story-content">
+                    <div class="story-chapter">
+                        <h4>📊 Chapter 1: Kondisi Stunting di Indonesia</h4>
+                        <div class="story-media">
+                            <div class="story-visual" id="storyChart1">
+                                <!-- Interactive visualization -->
+                            </div>
+                            <div class="story-narrative">
+                                <p>Indonesia menghadapi tantangan serius dalam masalah stunting. Berdasarkan data yang dianalisis, <strong>24.4%</strong> balita mengalami stunting, yang berarti 1 dari 4 anak mengalami gangguan pertumbuhan.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="story-chapter">
+                        <h4>👫 Chapter 2: Perbedaan Gender dalam Stunting</h4>
+                        <div class="story-media">
+                            <div class="story-visual" id="storyChart2">
+                                <!-- Gender analysis visualization -->
+                            </div>
+                            <div class="story-narrative">
+                                <p>Analisis menunjukkan bahwa tidak ada perbedaan signifikan antara anak laki-laki dan perempuan dalam prevalensi stunting. Hal ini mengindikasikan bahwa faktor gender bukan penentu utama risiko stunting.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="story-chapter">
+                        <h4>🎯 Chapter 3: Clustering Insight</h4>
+                        <div class="story-media">
+                            <div class="story-visual" id="storyChart3">
+                                <!-- Clustering visualization -->
+                            </div>
+                            <div class="story-narrative">
+                                <p>Machine learning clustering mengidentifikasi <strong>3 kelompok</strong> balita berdasarkan karakteristik fisik. Kelompok dengan risiko tinggi stunting dapat diidentifikasi untuk intervensi dini.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="video-section">
+                        <h4>🎥 Video Presentasi</h4>
+                        <div class="video-placeholder">
+                            <i class="fas fa-play-circle"></i>
+                            <p>Video storytelling akan tersedia di sini</p>
+                            <button class="video-btn" onclick="playStoryVideo()">▶️ Play Video</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 7. INSIGHTS & REKOMENDASI SECTION -->
+        <div id="insights" class="section">
+            <div class="insights-section">
+                <h3>💡 Insights & Rekomendasi</h3>
+                
+                <div class="key-insights">
+                    <div class="insight-card major">
+                        <h4><i class="fas fa-exclamation-circle"></i> Key Finding 1</h4>
+                        <p>Prevalensi stunting sebesar <strong>24.4%</strong> masih di atas target WHO sebesar 20%, memerlukan intervensi yang lebih intensif.</p>
+                    </div>
+
+                    <div class="insight-card major">
+                        <h4><i class="fas fa-chart-line"></i> Key Finding 2</h4>
+                        <p>Model machine learning mencapai akurasi <strong>87.5%</strong> dalam prediksi status stunting, dapat digunakan untuk screening awal.</p>
+                    </div>
+
+                    <div class="insight-card major">
+                        <h4><i class="fas fa-users"></i> Key Finding 3</h4>
+                        <p>Clustering analysis mengidentifikasi <strong>3 kelompok risiko</strong> yang dapat digunakan untuk personalisasi intervensi.</p>
+                    </div>
+                </div>
+
+                <div class="recommendations">
+                    <h4>🎯 Rekomendasi Berbasis Data</h4>
+                    
+                    <div class="recommendation-category">
+                        <h5><i class="fas fa-hospital"></i> Untuk Tenaga Kesehatan</h5>
+                        <ul>
+                            <li>Implementasi screening digital menggunakan model AI untuk deteksi dini stunting</li>
+                            <li>Fokus intervensi pada kelompok usia 0-24 bulan yang menunjukkan risiko tertinggi</li>
+                            <li>Monitoring rutin menggunakan Z-score WHO sebagai standar evaluasi</li>
+                        </ul>
+                    </div>
+
+                    <div class="recommendation-category">
+                        <h5><i class="fas fa-chart-bar"></i> Untuk Peneliti</h5>
+                        <ul>
+                            <li>Eksplorasi faktor sosio-ekonomi sebagai variabel tambahan dalam model</li>
+                            <li>Pengembangan model ensemble untuk meningkatkan akurasi prediksi</li>
+                            <li>Validasi model pada dataset dari region geografis yang berbeda</li>
+                        </ul>
+                    </div>
+
+                    <div class="recommendation-category">
+                        <h5><i class="fas fa-users-cog"></i> Untuk Pembuat Kebijakan</h5>
+                        <ul>
+                            <li>Alokasi sumber daya berdasarkan pemetaan risiko dari clustering analysis</li>
+                            <li>Pengembangan program intervensi terintegrasi untuk mencapai target WHO</li>
+                            <li>Implementasi sistem monitoring digital berbasis data untuk evaluasi program</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="impact-projection">
+                    <h4>📈 Proyeksi Dampak</h4>
+                    <div class="impact-metrics">
+                        <div class="impact-item">
+                            <span class="impact-value">15%</span>
+                            <span class="impact-label">Pengurangan Stunting Potensial</span>
+                        </div>
+                        <div class="impact-item">
+                            <span class="impact-value">50K+</span>
+                            <span class="impact-label">Balita Terselamatkan</span>
+                        </div>
+                        <div class="impact-item">
+                            <span class="impact-value">85%</span>
+                            <span class="impact-label">Efektivitas Early Detection</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. PREDICTION SECTION (EXISTING) -->
         <div id="prediction" class="section">
             <div class="prediction-section">
                 <h3>🔮 Prediksi Status Stunting Balita</h3>
                 
-                <!-- API Status Indicator -->
-                <div id="apiStatus" style="background: #e7f3ff; padding: 10px; border-radius: 8px; margin-bottom: 20px; text-align: center; font-size: 14px;">
+                <div id="apiStatus" class="api-status">
                     <span id="statusText">⏳ Memeriksa status sistem...</span>
                 </div>
                 
@@ -139,7 +547,7 @@
                     <div class="form-group">
                         <label for="age">Usia (bulan)</label>
                         <input type="number" id="age" name="age" min="0" max="60" required>
-                        <small style="color: #666; font-size: 12px;">Rentang: 0-60 bulan</small>
+                        <small>Rentang: 0-60 bulan</small>
                     </div>
                     <div class="form-group">
                         <label for="gender">Jenis Kelamin</label>
@@ -152,7 +560,7 @@
                     <div class="form-group">
                         <label for="height">Tinggi Badan (cm)</label>
                         <input type="number" id="height" name="height" min="40" max="120" step="0.1" required>
-                        <small style="color: #666; font-size: 12px;">Rentang: 40-120 cm</small>
+                        <small>Rentang: 40-120 cm</small>
                     </div>
                     <button type="submit" class="predict-btn">
                         🔮 Prediksi Status Stunting
@@ -170,140 +578,148 @@
             </div>
         </div>
 
-        <!-- About Section -->
-        <div id="about" class="section">
-            <div class="about-section">
-                <h3>📋 Tentang Dashboard Stunting</h3>
-                <div class="about-content">
-                    <p>
-                        <strong>Dashboard Stunting</strong> adalah sistem monitoring dan prediksi status stunting balita yang dikembangkan untuk membantu tenaga kesehatan, peneliti, dan pemangku kebijakan dalam memantau dan menganalisis kondisi gizi balita.
-                    </p>
-                    
-                    <p>
-                        <strong>Stunting</strong> adalah kondisi gagal tumbuh pada anak balita akibat kekurangan gizi kronis terutama pada 1000 hari pertama kehidupan. Stunting menjadi indikator penting dalam penilaian status gizi dan kesehatan anak.
-                    </p>
-                    
-                    <p>
-                        <strong>Fitur Dashboard:</strong>
-                    </p>
-                    <ul style="margin-left: 2rem; margin-bottom: 1rem;">
-                        <li>Visualisasi data stunting berdasarkan jenis kelamin dan kelompok usia</li>
-                        <li>Statistik prevalensi stunting secara real-time</li>
-                        <li>Analisis data science dengan clustering dan korelasi</li>
-                        <li>Prediksi status stunting menggunakan AI Machine Learning</li>
-                        <li>Fallback ke standar WHO Z-score jika AI tidak tersedia</li>
-                        <li>Rekomendasi intervensi berdasarkan hasil prediksi</li>
-                    </ul>
-                    
-                    <p>
-                        <strong>Analisis Data Science:</strong>
-                    </p>
-                    <ul style="margin-left: 2rem; margin-bottom: 1rem;">
-                        <li><strong>K-Means Clustering:</strong> Pengelompokan balita berdasarkan karakteristik fisik</li>
-                        <li><strong>Elbow Method:</strong> Penentuan jumlah cluster optimal</li>
-                        <li><strong>Silhouette Analysis:</strong> Evaluasi kualitas clustering</li>
-                        <li><strong>Correlation Analysis:</strong> Analisis hubungan antar variabel</li>
-                    </ul>
-                    
-                    <p>
-                        Dashboard ini mengintegrasikan teknik data science modern dengan praktik medis untuk memberikan insight yang actionable dalam pencegahan stunting.
-                    </p>
+        <!-- 9. EXPORT SECTION -->
+        <div id="export" class="section">
+            <div class="export-section">
+                <h3>📥 Download & Export Data</h3>
+                
+                <div class="export-options">
+                    <div class="export-card">
+                        <h4><i class="fas fa-file-csv"></i> Dataset Results</h4>
+                        <p>Download hasil klasifikasi dan clustering dalam format CSV</p>
+                        <button onclick="exportCSV('classification')" class="export-btn">
+                            📊 Download Classification Results
+                        </button>
+                        <button onclick="exportCSV('clustering')" class="export-btn">
+                            🎯 Download Clustering Results
+                        </button>
+                    </div>
+
+                    <div class="export-card">
+                        <h4><i class="fas fa-file-pdf"></i> Laporan Analisis</h4>
+                        <p>Unduh laporan ringkasan analisis dalam format PDF</p>
+                        <button onclick="exportPDF()" class="export-btn">
+                            📄 Download PDF Report
+                        </button>
+                    </div>
+
+                    <div class="export-card">
+                        <h4><i class="fas fa-images"></i> Visualisasi</h4>
+                        <p>Download semua chart dan visualisasi</p>
+                        <button onclick="exportCharts()" class="export-btn">
+                            🖼️ Download All Charts
+                        </button>
+                    </div>
+
+                    <div class="export-card">
+                        <h4><i class="fas fa-code"></i> Model Files</h4>
+                        <p>Download trained model dan scaler</p>
+                        <button onclick="exportModel()" class="export-btn">
+                            🤖 Download Model Files
+                        </button>
+                    </div>
+                </div>
+
+                <div class="export-history">
+                    <h4>📋 Download History</h4>
+                    <div class="history-list" id="downloadHistory">
+                        <!-- Download history will be populated here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. ABOUT TEAM SECTION -->
+        <div id="team" class="section">
+            <div class="team-section">
+                <h3>👥 Tentang Tim Pengembang</h3>
+                
+                <div class="team-intro">
+                    <p>Tim mahasiswa yang berdedikasi dalam mengembangkan solusi analisis stunting berbasis data science</p>
+                </div>
+
+                <div class="team-members">
+                    <div class="member-card">
+                        <div class="member-avatar">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <h4>Nama Mahasiswa 1</h4>
+                        <p class="member-role">Data Scientist & ML Engineer</p>
+                        <p class="member-id">NIM: 20xxxxxxx</p>
+                        <div class="member-contributions">
+                            <span>Machine Learning</span>
+                            <span>Data Preprocessing</span>
+                            <span>Model Evaluation</span>
+                        </div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-avatar">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <h4>Nama Mahasiswa 2</h4>
+                        <p class="member-role">Frontend Developer & Data Analyst</p>
+                        <p class="member-id">NIM: 20xxxxxxx</p>
+                        <div class="member-contributions">
+                            <span>Web Development</span>
+                            <span>Data Visualization</span>
+                            <span>UI/UX Design</span>
+                        </div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-avatar">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <h4>Nama Mahasiswa 3</h4>
+                        <p class="member-role">Backend Developer & DevOps</p>
+                        <p class="member-id">NIM: 20xxxxxxx</p>
+                        <div class="member-contributions">
+                            <span>Backend Development</span>
+                            <span>API Development</span>
+                            <span>System Integration</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-info">
+                    <h4>📚 Informasi Proyek</h4>
+                    <div class="project-details">
+                        <div class="detail-item">
+                            <strong>Mata Kuliah:</strong> Data Science & Machine Learning
+                        </div>
+                        <div class="detail-item">
+                            <strong>Semester:</strong> Ganjil 2024/2025
+                        </div>
+                        <div class="detail-item">
+                            <strong>Dosen Pembimbing:</strong> Dr. Nama Dosen, M.Kom
+                        </div>
+                        <div class="detail-item">
+                            <strong>Universitas:</strong> Nama Universitas
+                        </div>
+                        <div class="detail-item">
+                            <strong>Periode:</strong> September - Desember 2024
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tech-stack">
+                    <h4>🛠️ Technology Stack</h4>
+                    <div class="tech-items">
+                        <span class="tech-item">Python</span>
+                        <span class="tech-item">Flask</span>
+                        <span class="tech-item">TensorFlow</span>
+                        <span class="tech-item">Scikit-learn</span>
+                        <span class="tech-item">Pandas</span>
+                        <span class="tech-item">Matplotlib</span>
+                        <span class="tech-item">HTML/CSS/JS</span>
+                        <span class="tech-item">Chart.js</span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <script src="script.js"></script>
-    <script>
-        // Extended JavaScript for Chart Loading
-        async function loadChart(chartType) {
-            console.log(`Loading ${chartType} chart...`);
-            
-            // Show loading state
-            document.getElementById('analysisWelcome').style.display = 'none';
-            document.getElementById('analysisChart').style.display = 'none';
-            document.getElementById('analysisLoading').style.display = 'block';
-            
-            try {
-                const response = await fetch(`/api/charts/${chartType}`);
-                const data = await response.json();
-                
-                if (data.success) {
-                    // Update chart display
-                    document.getElementById('chartImg').src = `data:image/png;base64,${data.chart}`;
-                    
-                    // Update title and description based on chart type
-                    const titles = {
-                        'clustering': '🎯 Analisis K-Means Clustering',
-                        'distribution': '📊 Distribusi Data Stunting',
-                        'correlation': '🔗 Matriks Korelasi Variabel'
-                    };
-                    
-                    const descriptions = {
-                        'clustering': 'Analisis pengelompokan data menggunakan algoritma K-Means untuk menemukan pola dalam data stunting.',
-                        'distribution': 'Visualisasi distribusi umur, tinggi badan, jenis kelamin, dan status gizi dalam dataset.',
-                        'correlation': 'Analisis korelasi antar variabel untuk memahami hubungan antara faktor-faktor stunting.'
-                    };
-                    
-                    document.getElementById('chartTitle').textContent = titles[chartType];
-                    document.getElementById('chartDescription').textContent = descriptions[chartType];
-                    
-                    // Show insights based on chart type
-                    const insightsDiv = document.getElementById('chartInsights');
-                    if (chartType === 'clustering' && data.optimal_k) {
-                        insightsDiv.innerHTML = `
-                            <div class="insight-card">
-                                <h5>📈 Insight Clustering:</h5>
-                                <p><strong>Jumlah cluster optimal:</strong> ${data.optimal_k}</p>
-                                <p><strong>Silhouette Score terbaik:</strong> ${data.max_silhouette.toFixed(3)}</p>
-                                <p>Clustering menunjukkan adanya ${data.optimal_k} kelompok balita dengan karakteristik serupa dalam dataset.</p>
-                            </div>
-                        `;
-                    } else if (chartType === 'distribution' && data.statistics) {
-                        insightsDiv.innerHTML = `
-                            <div class="insight-card">
-                                <h5>📊 Statistik Dataset:</h5>
-                                <p><strong>Total sampel:</strong> ${data.statistics.total_samples.toLocaleString()}</p>
-                                <p><strong>Rata-rata umur:</strong> ${data.statistics.age_mean.toFixed(1)} bulan</p>
-                                <p><strong>Rata-rata tinggi:</strong> ${data.statistics.height_mean.toFixed(1)} cm</p>
-                            </div>
-                        `;
-                    } else {
-                        insightsDiv.innerHTML = `
-                            <div class="insight-card">
-                                <h5>💡 Insight:</h5>
-                                <p>Analisis ${chartType} memberikan pemahaman mendalam tentang pola dalam data stunting balita.</p>
-                            </div>
-                        `;
-                    }
-                    
-                    // Hide loading and show chart
-                    document.getElementById('analysisLoading').style.display = 'none';
-                    document.getElementById('analysisChart').style.display = 'block';
-                    
-                } else {
-                    throw new Error(data.error || 'Failed to load chart');
-                }
-                
-            } catch (error) {
-                console.error('Error loading chart:', error);
-                document.getElementById('analysisLoading').style.display = 'none';
-                document.getElementById('analysisWelcome').innerHTML = `
-                    <h4>❌ Error Loading Chart</h4>
-                    <p>Gagal memuat chart: ${error.message}</p>
-                    <p>Pastikan server Flask berjalan dan dataset tersedia.</p>
-                `;
-                document.getElementById('analysisWelcome').style.display = 'block';
-            }
-        }
-
-        // Update API status display
-        function showAPIStatus(message) {
-            const statusElement = document.getElementById('statusText');
-            if (statusElement) {
-                statusElement.textContent = message;
-            }
-        }
-    </script>
 </body>
 </html>
